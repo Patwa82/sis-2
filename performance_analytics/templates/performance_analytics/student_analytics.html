@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Analytics{% endblock %}
+
+{% block content %}
+<h2>Student Performance Analytics</h2>
+
+<h3>Your Performance</h3>
+<ul>
+    {% for performance in student_performance %}
+    <li>
+        <h4>Subject: {{ performance.subject }}</h4>
+        <p>Score: {{ performance.score }}</p>
+        <p>Behavior: {{ performance.behavior }}</p>
+        <p>Date: {{ performance.date }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+<h3>Learning Progress</h3>
+<ul>
+    {% for progress in student_progress %}
+    <li>
+        <h4>Subject: {{ progress.subject }}</h4>
+        <p>Score: {{ progress.score }}</p>
+        <p>Date: {{ progress.date }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

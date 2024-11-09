@@ -1,0 +1,12 @@
+{% extends 'course_management/base.html' %}
+
+{% block title %}Branches{% endblock %}
+
+{% block content %}
+    <h2>Branches</h2>
+    <ul>
+        {% for branch in branches %}
+            <li>{{ branch.name }} (Program: {{ branch.program.program }})</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

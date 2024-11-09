@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Progress Reports{% endblock %}
+
+{% block content %}
+<h2>Progress Reports</h2>
+<a href="{% url 'progress_report_create' %}">Add New Report</a>
+<ul>
+    {% for report in reports %}
+    <li>
+        <h3>{{ report.student.username }}</h3> <!-- Updated to display student username -->
+        <p>Subject: {{ report.subject }}</p>
+        <p>Grade: {{ report.grade }}</p>
+        <p>Comments: {{ report.comments }}</p>
+        <p>Date: {{ report.date }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

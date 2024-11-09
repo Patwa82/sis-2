@@ -1,0 +1,13 @@
+def register(request):
+    msg = None
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            msg = 'User created successfully!'
+            return redirect('login_view')
+        else:
+            msg = 'Form is not valid.'
+    else:
+        form = SignUpForm()
+    return render(request, 'account/register.html', {'form': form, 'msg': msg})

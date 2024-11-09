@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Resource Booking{% endblock %}
+
+{% block content %}
+<h2>Library Resources</h2>
+<a href="{% url 'booking_create' %}">Book a Resource</a>
+<ul>
+    {% for resource in resources %}
+    <li>
+        <h3>{{ resource.title }}</h3>
+        <p>Author: {{ resource.author }}</p>
+        <p>Published Date: {{ resource.published_date }}</p>
+        <p>Status: {% if resource.is_available %}Available{% else %}Not Available{% endif %}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

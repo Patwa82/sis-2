@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Exam List{% endblock %}
+{% block content %}
+<h2>Exam List</h2>
+<ul>
+    {% for exam in exams %}
+    <li>{{ exam.course.title }} - {{ exam.subject }} | {{ exam.branch }} | Year {{ exam.year }} | 
+    Start: {{ exam.start_time }} | End: {{ exam.end_time }}
+    <a href="{% url 'submit_exam' exam.id %}">Submit Exam</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

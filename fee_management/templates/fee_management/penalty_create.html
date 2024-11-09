@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Penalty{% endblock %}
+
+{% block content %}
+<h2>Add New Penalty</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Penalty</button>
+</form>
+<a href="{% url 'fee_payment_list' %}">Back to Payments</a>
+{% endblock %}

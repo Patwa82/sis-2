@@ -1,0 +1,16 @@
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+<a href="{% url 'register' %}">Don't have an account? Register</a>
+<br>
+<a href="{% url 'reset_password' %}">Forgot password?</a>

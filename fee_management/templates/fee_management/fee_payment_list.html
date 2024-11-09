@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Fee Payments{% endblock %}
+
+{% block content %}
+<h2>Fee Payments</h2>
+<a href="{% url 'fee_payment_create' %}">Add New Payment</a>
+<ul>
+    {% for payment in payments %}
+    <li>
+        <h3>{{ payment.student.username }}</h3>
+        <p>Course: {{ payment.course.title }}</p>
+        <p>Branch: {{ payment.branch }}</p>
+        <p>Year: {{ payment.year }}</p>
+        <p>Amount: {{ payment.amount }}</p>
+        <p>Date: {{ payment.payment_date }}</p>
+        <p>Receipt: {{ payment.receipt_number }}</p>
+        <p>Online Payment: {{ payment.is_online }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Class Schedule{% endblock %}
+
+{% block content %}
+<h2>Add New Class Schedule</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Schedule</button>
+</form>
+<a href="{% url 'class_schedule_list' %}">Back to Schedule</a>
+{% endblock %}

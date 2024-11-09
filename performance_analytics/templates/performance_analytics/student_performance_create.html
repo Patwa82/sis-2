@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Student Performance{% endblock %}
+
+{% block content %}
+<h2>Add New Student Performance</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Performance</button>
+</form>
+
+<a href="{% url 'student_analytics' %}">Back to Analytics</a>
+{% endblock %}

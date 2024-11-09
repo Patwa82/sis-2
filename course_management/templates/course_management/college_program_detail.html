@@ -1,0 +1,33 @@
+{% extends 'course_management/base.html' %}
+{% block title %}Program: {{ object.program }}{% endblock %}
+
+{% block content %}
+    <h2>{{ object.program }}</h2>
+    <p><strong>Description:</strong> {{ object.description }}</p>
+    <p><strong>Start Date:</strong> {{ object.start_date }}</p>
+    <p><strong>End Date:</strong> {{ object.end_date }}</p>
+    <p><strong>Enrollment Term:</strong> {{ object.enrollment_term }}</p>
+
+    <h3>Branches in this Program:</h3>
+    <ul>
+        {% for branch in object.branches.all %}
+            <li>{{ branch.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Subjects:</h3>
+    <ul>
+        {% for branch in object.branches.all %}
+            <li>
+                <strong>{{ branch.name }}</strong>:
+                <ul>
+                    {% for subject in branch.subjects.all %}
+                        <li>{{ subject.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'college_program_list' %}">Back to Programs</a>
+{% endblock %}

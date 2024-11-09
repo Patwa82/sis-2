@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Submit Support Request{% endblock %}
+
+{% block content %}
+<h2>Submit a New Support Request</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Request</button>
+</form>
+<a href="{% url 'support_request_list' %}">Back to Support Requests</a>
+{% endblock %}

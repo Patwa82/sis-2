@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LMS{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'course_management/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LMS</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'college_program_list' %}">Programs</a></li>
+                    <li><a href="{% url 'college_program_create' %}">Create Program</a></li>
+                    <li><a href="{% url 'branch_list' %}">Branches</a></li>
+                </ul>
+            </nav>
+        </header>
+        <hr>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

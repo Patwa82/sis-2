@@ -1,0 +1,16 @@
+{% extends 'course_management/base.html' %}
+
+{% block title %}Faculty Assignment List{% endblock %}
+
+{% block content %}
+    <h2>Faculty Assignment List</h2>
+    <ul>
+        {% for assignment in object_list %}
+            <li>
+                <a href="{% url 'faculty_assignment_detail' assignment.student_assignment.pk %}">{{ assignment.student_assignment.title }}</a> - 
+                Due: {{ assignment.student_assignment.due_date }} 
+                {% if assignment.student_assignment.submitted %} (Submitted) {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

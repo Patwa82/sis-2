@@ -1,0 +1,16 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LMS Platform{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/exam_features.css' %}">
+    <script src="{% static 'js/exam_features.js' %}" defer></script>
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

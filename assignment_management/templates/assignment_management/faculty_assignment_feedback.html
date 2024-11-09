@@ -1,0 +1,13 @@
+{% extends 'course_management/base.html' %}
+
+{% block title %}Provide Feedback{% endblock %}
+
+{% block content %}
+    <h2>Provide Feedback for Assignment</h2>
+    <form method="post" enctype="multipart/form-data">  <!-- Add enctype for file uploads -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Feedback</button>
+    </form>
+    <a href="{% url 'faculty_assignment_list' %}">Back to Assignments</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+/* attendance_management/static/css/attendance_report.css */
+
+.attendance-report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.attendance-report-table th,
+.attendance-report-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.attendance-report-table th {
+    background-color: #f4f4f4;
+}
+
+.attendance-report-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.attendance-report-table .present {
+    background-color: #c6e6b3; /* Greenish color for present status */
+}
+
+.attendance-report-table .absent {
+    background-color: #f8d7da; /* Reddish color for absent status */
+}

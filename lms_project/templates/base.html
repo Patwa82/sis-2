@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LMS Project{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Learning Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'course_list' %}">Courses</a></li>
+                <li><a href="{% url 'assignment_list' %}">Assignments</a></li>
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="content">
+        {% block content %}
+        <!-- This will be overridden by child templates -->
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 LMS Project</p>
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script>  <!-- Link to your JavaScript file -->
+</body>
+</html>

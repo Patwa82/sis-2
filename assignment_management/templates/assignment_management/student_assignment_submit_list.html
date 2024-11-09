@@ -1,0 +1,14 @@
+<!-- assignment_management/templates/assignment_management/student_assignment_submit.html -->
+{% extends 'course_management/base.html' %}
+
+{% block title %}Submit Assignment{% endblock %}
+
+{% block content %}
+<h2>Submit Assignment</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Assignment</button>
+</form>
+<a href="{% url 'student_assignment_list' %}">Back to Assignments</a>
+{% endblock %}

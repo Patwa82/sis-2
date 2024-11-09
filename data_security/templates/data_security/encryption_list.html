@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Data Encryption{% endblock %}
+
+{% block content %}
+<h2>Encrypted Data Fields</h2>
+<a href="{% url 'encryption_create' %}" class="btn btn-primary">Add New Encryption</a>
+<ul>
+    {% for encryption in encryptions %}
+    <li>
+        <h3>{{ encryption.data_field }}</h3>
+        <p>Method: {{ encryption.encryption_method }}</p>
+        <p>Encrypted Value: {{ encryption.encrypted_value }}</p>
+        <p>Date Created: {{ encryption.created_at }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

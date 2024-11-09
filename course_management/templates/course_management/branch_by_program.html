@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branches by Program</title>
+</head>
+<body>
+    <h2>Branches for {{ program.program_name }}</h2>
+    <ul>
+        {% for branch in branches %}
+            <li>{{ branch.branch_name }}</li>
+        {% empty %}
+            <li>No branches available for this program</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'create_branch' %}">Create a new Branch</a>
+</body>
+</html>

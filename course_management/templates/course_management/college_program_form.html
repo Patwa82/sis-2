@@ -1,0 +1,39 @@
+{% extends 'course_management/base.html' %}
+
+{% block title %}Create College Program{% endblock %}
+
+{% block content %}
+    <h2>Create College Program</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Program</button>
+    </form>
+    <a href="{% url 'college_program_list' %}">Back to Programs</a>
+    
+    <!-- Adding the JavaScript here to dynamically populate branches -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const programSelect = document.querySelector('#id_program');
+            const branchSelect = document.querySelector('#id_branches');
+            
+            // Event listener for when the program dropdown changes
+            programSelect.addEventListener('change', function() {
+                const programId = programSelect.value;
+                
+                // Fetch branches based on the selected program
+                fetch(`/get_branches/?program_id=${programId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        branchSelect.innerHTML = '';  // Clear existing branches
+                        data.branches.forEach(branch => {
+                            const option = document.createElement('option');
+                            option.value = branch.id;
+                            option.textContent = branch.name;
+                            branchSelect.appendChild(option);  // Add new branch options
+                        });
+                    });
+            });
+        });
+    </script>
+{% endblock %}

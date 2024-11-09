@@ -1,0 +1,42 @@
+{% extends 'course_management/base.html' %}
+
+{% block title %}College Programs{% endblock %}
+
+{% block content %}
+    <h2>Available College Programs</h2>
+    <a href="{% url 'college_program_create' %}">Add New Program</a>
+
+    <!-- Table View for College Programs -->
+    <table>
+        <thead>
+            <tr>
+                <th>Program</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for program in programs %}
+            <tr>
+                <td>{{ program.program }}</td>
+                <td>{{ program.description }}</td>
+                <td>{{ program.start_date }}</td>
+                <td>{{ program.end_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- List View for College Programs -->
+    <ul>
+        {% for program in programs %}
+            <li>
+                <h3>{{ program.program }}</h3>
+                <p><strong>Description:</strong> {{ program.description }}</p>
+                <p><strong>Start Date:</strong> {{ program.start_date }}</p>
+                <p><strong>End Date:</strong> {{ program.end_date }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'course_management/base.html' %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ object.title }}</h2>
+    <p><strong>Student:</strong> {{ object.student }}</p>
+    <p><strong>Description:</strong> {{ object.description }}</p>
+    <p><strong>Due Date:</strong> {{ object.due_date }}</p>
+    <p><strong>Submitted:</strong> {{ object.submitted }}</p>
+    {% if object.submitted %}
+        <p><strong>Submission Date:</strong> {{ object.submission_date }}</p>
+    {% endif %}
+    <a href="{% url 'student_assignment_list' %}">Back to Assignments</a>
+{% endblock %}

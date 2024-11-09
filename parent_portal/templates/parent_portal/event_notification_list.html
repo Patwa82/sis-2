@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Event Notifications{% endblock %}
+
+{% block content %}
+<h2>Event Notifications</h2>
+<a href="{% url 'event_notification_create' %}">Add New Notification</a>
+<ul>
+    {% for notification in notifications %}
+    <li>
+        <h3>{{ notification.student_name }}</h3>
+        <p>{{ notification.event_description }}</p>
+        <p>Date: {{ notification.event_date }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

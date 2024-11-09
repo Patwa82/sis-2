@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Mobile App Notifications{% endblock %}
+
+{% block content %}
+<h2>Mobile App Notifications</h2>
+<a href="{% url 'mobile_notification_create' %}" class="btn btn-primary">Send New Notification</a>
+
+<ul>
+    {% for notification in notifications %}
+    <li>
+        <h3>{{ notification.title }}</h3>
+        <p>{{ notification.message }}</p>
+        <p>Sent by: {{ notification.sent_by.username }}</p>  <!-- Display the sender's name -->
+        <p>Date Sent: {{ notification.date_sent }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

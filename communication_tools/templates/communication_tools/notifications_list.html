@@ -1,0 +1,18 @@
+<!-- communication_tools/templates/communication_tools/notification_list.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Notifications{% endblock %}
+
+{% block content %}
+<h2>Your Notifications</h2>
+<ul>
+    {% for notification in notifications %}
+    <li>
+        {{ notification.message }} 
+        <small>{{ notification.created_at }}</small>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'forum_list' %}">Back to Forum</a>
+{% endblock %}

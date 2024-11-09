@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Audit Logs{% endblock %}
+
+{% block content %}
+<h2>Audit Logs</h2>
+<ul>
+    {% for log in logs %}
+    <li>
+        <h3>{{ log.user.username }}</h3>
+        <p>Action: {{ log.action }}</p>
+        <p>IP Address: {{ log.ip_address }}</p>
+        <p>Date: {{ log.timestamp }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

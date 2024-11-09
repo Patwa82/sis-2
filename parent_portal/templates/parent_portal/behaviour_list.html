@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Behavior Events{% endblock %}
+
+{% block content %}
+<h2>Behavior Events</h2>
+<a href="{% url 'behavior_create' %}">Add New Behavior Event</a>
+<ul>
+    {% for behavior in behaviors %}
+    <li>
+        <h3>{{ behavior.student.username }}</h3> <!-- Updated to display student username -->
+        <p>Type: {{ behavior.behavior_type }}</p>
+        <p>Description: {{ behavior.description }}</p>
+        <p>Date: {{ behavior.date }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!-- communication_tools/templates/communication_tools/discussion_forum.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Discussion Forum{% endblock %}
+
+{% block content %}
+<h2>Discussion Forum</h2>
+<a href="{% url 'forum_create' %}">Create New Discussion</a>
+<ul>
+    {% for forum in forums %}
+    <li>
+        <h3>{{ forum.title }} ({{ forum.course.title }})</h3>  <!-- Show course title -->
+        <p>{{ forum.content }}</p>
+        <p><small>Posted on {{ forum.created_at }}</small></p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LMS Assignment Management{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'assignment_management/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Assignment Management</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'assignment_list' %}">Assignments</a></li>
+                <li><a href="{% url 'assignment_submit' %}">Submit Assignment</a></li>
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 LMS Project</p>
+    </footer>
+
+    <script src="{% static 'assignment_management/js/scripts.js' %}"></script> <!-- Assuming you have static JS files -->
+</body>
+</html>

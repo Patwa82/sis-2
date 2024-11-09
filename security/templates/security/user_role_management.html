@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}User Role Management{% endblock %}
+
+{% block content %}
+<h2>User Roles</h2>
+<a href="{% url 'user_role_create' %}">Add New Role</a>
+<ul>
+    {% for role in roles %}
+    <li>
+        <h3>{{ role.role_name }}</h3>
+        <p>Permissions: {{ role.permissions }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

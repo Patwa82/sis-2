@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Program Details</title>
+    <link rel="stylesheet" href="{% static 'course_management/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>All College Program Details</h1>
+        </header>
+        <hr>
+
+        <section>
+            <h2>Programs</h2>
+            <ul>
+                {% for program in programs %}
+                    <li>
+                        <strong>{{ program.program }}</strong> - {{ program.description }}<br>
+                        <em>Start Date:</em> {{ program.start_date }}<br>
+                        <em>End Date:</em> {{ program.end_date }}<br>
+                        <em>Enrollment Term:</em> {{ program.enrollment_term }}<br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section>
+            <h2>Branches</h2>
+            <ul>
+                {% for branch in branches %}
+                    <li>
+                        <strong>{{ branch.name }}</strong> (Program: {{ branch.program.program }})<br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section>
+            <h2>Subjects</h2>
+            <ul>
+                {% for subject in subjects %}
+                    <li>
+                        <strong>{{ subject.name }}</strong> (Branch: {{ subject.branch.name }})<br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
